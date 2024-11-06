@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vgomes-p <vgomes-p@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/06 15:47:51 by vgomes-p          #+#    #+#             */
+/*   Updated: 2024/11/06 15:47:51 by vgomes-p         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
 # include <stdlib.h>
 # include <unistd.h>
-#include <limits.h>
-#include <stddef.h>
-#include <string.h>
-#include <ctype.h>
+// # include <limits.h>
+// # include <stddef.h>
+// # include <string.h>
+// # include <ctype.h>
 
 typedef struct s_list
 {
@@ -14,11 +26,11 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
-int	ft_isalpha(int ch);
-int	ft_isdigit(int dig);
-int	ft_isalnum(int chdig);
-int	ft_isascii(int var);
-int	ft_isprint(int var);
+int		ft_isalpha(int ch);
+int		ft_isdigit(int dig);
+int		ft_isalnum(int chdig);
+int		ft_isascii(int var);
+int		ft_isprint(int var);
 size_t	ft_strlen(const char *var);
 void	*ft_memset(void *buffer, int value, size_t len);
 void	ft_bzero(void *s, size_t nby);
@@ -26,13 +38,13 @@ void	*ft_memcpy(void *dest, const void *src, size_t numby);
 void	*ft_memmove(void *dest, const void *src, size_t numby);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlcat(char *dest, const char *src, size_t destsz);
-int	ft_toupper(int ch);
-int	ft_tolower(int ch);
+int		ft_toupper(int ch);
+int		ft_tolower(int ch);
 char	*ft_strchr(const char *str, int ch);
 char	*ft_strrchr(const char *str, int ch);
-int	ft_strncmp(const char *str0, const char *str1, size_t numby);
+int		ft_strncmp(const char *str0, const char *str1, size_t numby);
 char	*ft_strnstr(const char *big, const char *ltl, size_t lench);
-int	ft_atoi(const char *str);
+int		ft_atoi(const char *str);
 void	*ft_calloc(size_t num_el, size_t numby);
 char	*ft_strdup(const char *str0);
 char	*ft_substr(char const *str, unsigned int start, size_t len);
