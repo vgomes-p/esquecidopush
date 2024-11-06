@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: vgomes-p <vgomes-p@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/11/06 17:08:38 by vgomes-p          #+#    #+#              #
+#    Updated: 2024/11/06 17:08:38 by vgomes-p         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME := libft.a
 
 SRCS := ft_isalpha.c ft_isdigit.c ft_strlen.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_memset.c ft_bzero.c \

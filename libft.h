@@ -43,6 +43,8 @@ int		ft_tolower(int ch);
 char	*ft_strchr(const char *str, int ch);
 char	*ft_strrchr(const char *str, int ch);
 int		ft_strncmp(const char *str0, const char *str1, size_t numby);
+void	*ft_memchr(const void *str, int ch, size_t numby);
+int		ft_memcmp(const void *str0, const void *str1, size_t numby);
 char	*ft_strnstr(const char *big, const char *ltl, size_t lench);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t num_el, size_t numby);
