@@ -15,6 +15,6 @@
 void	*ft_memset(void *buffer, int value, size_t len)
 {
 	while (len--)
-		*(unsigned char*)(buffer + len) = value;
+		*(unsigned char *)(buffer + len) = value;
 	return (buffer);
 }
