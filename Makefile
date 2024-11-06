@@ -5,45 +5,40 @@
 #                                                     +:+ +:+         +:+      #
 #    By: vgomes-p <vgomes-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/11/06 17:00:16 by vgomes-p          #+#    #+#              #
-#    Updated: 2024/11/06 17:09:00 by vgomes-p         ###   ########.fr        #
+#    Created: 2024/11/06 17:38:57 by vgomes-p          #+#    #+#              #
+#    Updated: 2024/11/06 17:39:35 by vgomes-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= libft.a
+NAME := libft.a
 
-DIR_SRCS	= SRCS
-DIR_OBJS	= objs
-SUBDIRS		= is to mem str put lst math gnl printf
+SRCS := ft_isalpha.c ft_isdigit.c ft_strlen.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_memset.c ft_bzero.c \
+	ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c \
+	ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c \
+	ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c \
+	ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-SRCS_DIRS	= $(foreach dir, $(SUBDIRS), $(addprefix $(DIR_SRCS)/, $(dir)))
-OBJS_DIRS	= $(foreach dir, $(SUBDIRS), $(addprefix $(DIR_OBJS)/, $(dir)))
-SRCS		= $(foreach dir, $(SRCS_DIRS), $(wildcard $(dir)/*.c))
-OBJS		= $(subst $(DIR_SRCS), $(DIR_OBJS), $(SRCS:.c=.o))
+OBJS := $(SRCS:.c=.o)
 
-INCLUDES	= -I includes
+CC := cc
+CFLAGS := -Wall -Wextra -Werror
+AR := ar -rcs
+RM := rm -rf
 
-CC		= clang
-CFLAGS	= -Wall -Wextra -Werror
-RM		= /bin/rm -f
+all: $(NAME)
 
-$(DIR_OBJS)/%.o :	$(DIR_SRCS)/%.c
-			@mkdir -p $(DIR_OBJS) $(OBJS_DIRS)
-			@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+$(NAME): $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 
-all:		$(NAME)
-
-$(NAME):	$(OBJS)
-			@ar -rcs $(NAME) $(OBJS)
-			@ranlib $(NAME)
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-			@$(RM) $(OBJS)
-			@$(RM) -r $(DIR_OBJS)
+	$(RM) $(OBJS)
 
-fclean:		clean
-			@$(RM) $(NAME)
+fclean: clean
+	$(RM) $(NAME)
 
-re:			fclean all
+re: fclean all
 
-.PHONY:		all clean fclean re
+.PHONY: all clean fclean re

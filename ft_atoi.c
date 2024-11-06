@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgomes-p <vgomes-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 16:36:15 by vgomes-p          #+#    #+#             */
-/*   Updated: 2024/11/05 16:36:15 by vgomes-p         ###   ########.fr       */
+/*   Created: 2024/11/05 15:35:29 by vgomes-p          #+#    #+#             */
+/*   Updated: 2024/11/05 15:35:29 by vgomes-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *str0)
+int	ft_atoi(const char *str)
 {
-	int		cnt;
-	char	*str1;
+	int	sign;
+	int	result;
 
-	cnt = 0;
-	str1 = malloc(ft_strlen(str0) + 1);
-	if (!str0)
-		return (NULL);
-	while (*str0)
-		str1[cnt++] = *str0++;
-	str1[cnt] = '\0';
-	return (str1);
+	result = 0;
+	sign = 1;
+	while ((*str >= '\t' && *str <= '\r') || *str == ' ')
+		str++;
+	if (*str == '-' || *str == '+')
+		if (*str++ == '-')
+			sign *= -1;
+	while (ft_isdigit(*str))
+		result = (result * 10) + (*str++ - '0');
+	return (result * sign);
 }

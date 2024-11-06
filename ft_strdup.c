@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgomes-p <vgomes-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 16:09:26 by vgomes-p          #+#    #+#             */
-/*   Updated: 2024/11/05 16:09:26 by vgomes-p         ###   ########.fr       */
+/*   Created: 2024/11/05 16:36:15 by vgomes-p          #+#    #+#             */
+/*   Updated: 2024/11/05 16:36:15 by vgomes-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t numby)
+char	*ft_strdup(const char *str0)
 {
-	if (!dest && !src)
+	int		cnt;
+	char	*str1;
+
+	cnt = 0;
+	str1 = malloc(ft_strlen(str0) + 1);
+	if (!str1)
 		return (NULL);
-	if (dest < src)
-		return (ft_memcpy(dest, src, numby));
-	while (numby--)
-		*(char *)(dest + numby) == *(char *)(src + numby)
-	return (dest);
+	while (*str0)
+		str1[cnt++] = *str0++;
+	str1[cnt] = '\0';
+	return (str1);
 }

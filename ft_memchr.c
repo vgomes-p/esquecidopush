@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgomes-p <vgomes-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 15:35:29 by vgomes-p          #+#    #+#             */
-/*   Updated: 2024/11/05 15:35:29 by vgomes-p         ###   ########.fr       */
+/*   Created: 2024/11/05 15:54:01 by vgomes-p          #+#    #+#             */
+/*   Updated: 2024/11/05 15:54:01 by vgomes-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+void	*ft_memchr(const void *str, int ch, size_t numby)
 {
-	int	sign;
-	int	result;
-
-	result = 0;
-	sign = 1;
-	while ((*str >= '\t' && *str <= '\r') || *str == ' ')
+	if (numby == '\0')
+		return (NULL);
+	while (numby--)
+	{
+		if (*(char *)str == (char)ch)
+			return ((char *)str);
 		str++;
-	if (*str == '-' || *str == '+')
-		if (*str++ == '-')
-			sign *= -1;
-	while (ft_isdigit(*str))
-		result = (result * 10) + (*str++ - '0');
-	return (nb * sign);
+	}
+	return (NULL);
 }
